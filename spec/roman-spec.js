@@ -1,8 +1,8 @@
 import { Board } from './../src/sudoku.js';
 
 describe('BoardCheck', function() {
-  var testBoard = new Board([
-   [1,2,3,4,5,6,7,8,9],
+
+  var testBoard = new Board([1,2,3,4,5,6,7,8,9],
     [1,2,3,4,5,6,7,8,9],
     [1,2,3,4,5,6,7,8,9],
      [1,2,3,4,5,6,7,8,9],
@@ -40,9 +40,7 @@ describe('BoardCheck', function() {
   });
 
   it('each row should have no more than one of each number, 1-9', function() {
-
-
-      for(var j = 0; j < 9; j++) {
+    var j=0;
         var rowNumber = ('row'+j);
         var testRow = testBoard[rowNumber];
         // var repeatArray = [];
@@ -50,11 +48,10 @@ describe('BoardCheck', function() {
         //   repeatArray.push(testRow[i]);
           var results = testRow.sort();
           var control = [1,2,3,4,5,6,7,8,9];
-          for(var z = 0; z < 9; z++){
-          expect(results[z]).toEqual(control[z]);
-        }
+          control = control.sort();
+          expect(results).toEqual(control);
 
-    }
+    })
   });
   //
   // it('each column should have no more than one of each number, 1-9', function() {
@@ -71,11 +68,3 @@ describe('BoardCheck', function() {
   //
   //
   // });
-
-
-
-
-
-
-
-});
